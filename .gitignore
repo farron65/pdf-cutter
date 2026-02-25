@@ -1,0 +1,12 @@
+# IntelliJ / IDE junk
+.idea/
+*.iml
+
+# Maven build output
+target/
+
+# Compiled Java files (safety)
+*.class
+
+# OS junk
+.DS_Store
