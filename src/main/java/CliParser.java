@@ -19,14 +19,19 @@ public class CliParser implements PageRemovalListener {
         setPdfPath(scanner.nextLine());
     }
 
-    public String getPageRange() throws IOException {
-        System.out.print("What page to cut: ");
+    public String getPageRange(int numPages) throws IOException {
+        System.out.printf("The pdf has %d pages.\n", numPages);
+
+        System.out.print("What pages to cut: ");
         return scanner.next();
     }
 
     public String getNewFileName() throws IOException {
         System.out.print("New file name: ");
-        return scanner.next();
+        String path = pdfPath.substring(0, pdfPath.lastIndexOf("\\")+1); // To include '\'
+        String newPath = path + scanner.next();
+        System.out.println("PDF save on path: " + newPath);
+        return newPath;
     }
 
     public void errorPagesOutOfBounce(String pagesToCut) {

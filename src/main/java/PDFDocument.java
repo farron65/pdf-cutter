@@ -6,17 +6,15 @@ import java.util.Arrays;
 
 public class PDFDocument {
 
-    PDFDocument(String filePath, String pagesToCut, PageRemovalListener listener) throws IOException {
+    PDFDocument(String filePath, PageRemovalListener listener) throws IOException {
         this.pdfFile = Loader.loadPDF(new File(filePath));
         this.numPages = pdfFile.getNumberOfPages();
-        this.pagesToCut = pagesToCut;
 
         this.listener = listener;
     }
 
     private PDDocument pdfFile;
     public int numPages;
-    public String pagesToCut;
 
     private PageRemovalListener listener;
 
