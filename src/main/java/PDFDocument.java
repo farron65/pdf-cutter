@@ -8,15 +8,17 @@ public class PDFDocument {
 
     PDFDocument(String filePath, PageRemovalListener listener) throws IOException {
         this.pdfFile = Loader.loadPDF(new File(filePath));
-        this.numPages = pdfFile.getNumberOfPages();
 
         this.listener = listener;
     }
 
     private PDDocument pdfFile;
-    public int numPages;
 
     private PageRemovalListener listener;
+
+    int getNumPages() {
+        return pdfFile.getNumberOfPages();
+    }
 
     public void saveUpdatedPdf(String newFileName) {
         try {

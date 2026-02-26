@@ -5,7 +5,7 @@ public class Main {
         cli.readPdfPath();
         try {
             PDFDocument pdf = new PDFDocument(cli.getPdfPath(), cli);
-            String pagesToCut = cli.getPageRange(pdf.numPages);
+            String pagesToCut = cli.getPageRange(pdf.getNumPages());
 
             if (!pdf.removePages(pagesToCut)) {
                 cli.errorPagesOutOfBounce(pagesToCut);
