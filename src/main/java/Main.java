@@ -4,9 +4,18 @@ public class Main {
         CliParser cli = new CliParser();
         cli.readPdfPath();
         try {
-            String p = cli.getPageRange();
-            PDFDocument pdf = new PDFDocument(cli.getPdfPath(), p);
-            System.out.print(cli.getPdfPath()+ ", " + p);
+            String pagesToCut = cli.getPageRange();
+            PDFDocument pdf = new PDFDocument(cli.getPdfPath(), pagesToCut, cli);
+            System.out.println();
+            System.out.println(cli.getPdfPath()+ ", " + pagesToCut);
+            System.out.println("Number of pages: " + pdf.numPages);
+
+            if (!pdf.removePages(pagesToCut)) {
+                cli.errorPagesOutOfBounce(pagesToCut);
+            }
+            else {
+                pdf.saveUpdatedPdf(cli.getNewFileName());
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
