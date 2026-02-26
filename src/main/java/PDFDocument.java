@@ -20,13 +20,8 @@ public class PDFDocument {
         return pdfFile.getNumberOfPages();
     }
 
-    public void saveUpdatedPdf(String newFileName) {
-        try {
-            pdfFile.save(newFileName + ".pdf");
-        }
-        catch (Exception e){
-            System.err.println(e);
-        }
+    public void saveUpdatedPdf(String newFileName) throws IOException {
+        pdfFile.save(newFileName + ".pdf");
     }
 
     public boolean removePages(String pagesToCut) {
