@@ -23,7 +23,7 @@ public class CliParser implements PageRemovalListener {
         System.out.printf("The pdf has %d pages.\n", numPages);
 
         System.out.print("What pages to cut: ");
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public String getNewFileName() throws IOException {
@@ -40,7 +40,7 @@ public class CliParser implements PageRemovalListener {
 
    @Override
     public void onPageRemoved(int pageIdx) {
-        System.out.printf("Page '%d' has been removed.\n", pageIdx+1);
+        System.out.printf("Page '%d' has been removed.\n", pageIdx);
    }
 }
 
