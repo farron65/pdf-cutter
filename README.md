@@ -38,9 +38,10 @@ java -jar target/pdf-page-cutter.jar
 
 ### Example in the terminal
 ```
-PDF Path: report.pdf
+PDF Path: C:\Users\admin\Documents\report.pdf
 Pages to remove: 1, 4-7 2
 New file name: cleaned_report
 ```
 ## Result:
-cleaned_report.pdf
+A new file is created in the same directory as `report.pdf`
+`C:\Users\admin\Documents\cleaned_report.pdf`
