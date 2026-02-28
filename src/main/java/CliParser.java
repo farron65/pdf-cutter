@@ -16,7 +16,7 @@ public class CliParser implements PageRemovalListener {
 
     public void readPdfPath() {
         System.out.print("PDF Path: ");
-        setPdfPath(scanner.nextLine());
+        setPdfPath(scanner.nextLine().replace("\"", ""));
     }
 
     public String getPageRange(int numPages) throws IOException {
