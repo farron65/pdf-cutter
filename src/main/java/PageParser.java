@@ -1,10 +1,10 @@
-import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class PageParser {
     public int[] parsePages(String input) {
         String[] tokens = input.split("[ ,]");
-        final int[] pages = new int[100];
-        int count = 0;
+        Set<Integer> set = new TreeSet<>();
 
         for (String token : tokens) {
             if (!token.isEmpty()) {
@@ -14,35 +14,26 @@ public class PageParser {
                     int start = Integer.parseInt(rangeParts[0]);
                     int end = Integer.parseInt(rangeParts[1]);
                     for (; start<=end; start++) {
-                        pages[count] = start;
-                        count++;
-
+                        set.add(start);
                     }
                 }
                 else {
-                    pages[count] = Integer.parseInt(token);
-                    count++;
+                    set.add(Integer.parseInt(token));
                 }
 
             }
         }
 
-        int[] res = Arrays.copyOfRange(pages, 0, count);
-        sortDescending(res);
+        int[] res = new int[set.size()];
+        sortDescending(set, res, res.length-1);
 
         return res;
     }
 
-    private void sortDescending(int[] arr) {
-        Arrays.sort(arr);
-        int length = arr.length;
-        int mid = length / 2;
-
-        for (int i = 0; i < mid; i++) {
-            int temp = arr[i];
-
-            arr[i] = arr[length-i-1];
-            arr[length-i-1] = temp;
+    private void sortDescending(Set<Integer> set, int[] arr, int n) {
+        for (int i : set) {
+            arr[n] = i;
+            n--;
         }
     }
 }
