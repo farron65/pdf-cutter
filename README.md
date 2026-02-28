@@ -22,7 +22,7 @@ I couldn't find a free PDF cutter that worked the way I wanted, so I made this.
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/pdf-page-cutter.git
+git clone https://github.com/farron65/pdf-page-cutter.git
 cd pdf-page-cutter
 ```
 
