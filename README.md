@@ -15,33 +15,48 @@ I couldn't find a free PDF cutter that worked the way I wanted, so I made this.
 ## Requirements
 
 - Java 17+
-- Maven
+- Maven (or IntelliJ IDEA with bundled Maven)
 
 ## Setup
 
 Clone the repository
 
 ```bash
-git clone https://github.com/farron65/pdf-page-cutter.git
-cd pdf-page-cutter
+git clone https://github.com/farron65/pdf-cutter.git
+cd pdf-cutter
 ```
 
-## Build the project
+### Option 1 — Maven (CLI)
+
 ```bash
 mvn package
 ```
-## Run code
+
+### Option 2 — IntelliJ IDE
+
+1. Open the project in IntelliJ.
+2. Right-click `pom.xml` -> **Add as Maven Project**.
+3. Run the `package` lifecycle task from the Maven tool window
+   or just run `Main.java`.
+
+## Run the program
+
 ```bash
-java -jar target/pdf-page-cutter.jar
+java -jar target/pdf-cutter.jar
 ```
+
 ## Example Usage
 
 ### Example in the terminal
 ```
-PDF Path: C:\Users\admin\Documents\report.pdf
+PDF Path: "C:\Users\admin\Documents\report.pdf"
 Pages to remove: 1, 4-7 2
 New file name: cleaned_report
 ```
+!Paths can be provided with or without quotation marks.
+
 ## Result:
 A new file is created in the same directory as `report.pdf`
-`C:\Users\admin\Documents\cleaned_report.pdf`
+```
+C:\Users\admin\Documents\cleaned_report.pdf
+```
